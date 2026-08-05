@@ -399,3 +399,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .book-success { background: var(--bg-3); border: 1px solid var(--purple); border-radius: var(--radius); padding: 40px 32px; text-align: center; box-shadow: 0 0 0 1px var(--purple), 0 24px 60px -28px var(--purple-glow); }
 .book-success h3 { color: var(--chrome); font-size: 1.5rem; }
 .book-success p { color: var(--silver); margin: 0; }
+
+/* ---------- Work gallery ---------- */
+.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.gallery-item { margin: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line-soft); box-shadow: 0 20px 50px -28px rgba(0,0,0,0.75); }
+.gallery-item img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.gallery-item:hover img { transform: scale(1.04); }
+.gallery-cta { text-align: center; margin-top: 34px; }
+@media (max-width: 700px) { .gallery-grid { grid-template-columns: 1fr; } }

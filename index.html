@@ -73,7 +73,7 @@
     <!-- ================= HERO ================= -->
     <section class="hero">
       <!-- Drop your clip at assets/hero-foam.mp4 (a low-lit car getting foamed works great). Falls back to the dark hero if absent. -->
-      <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+      <video class="hero-video" autoplay muted loop playsinline aria-hidden="true" poster="assets/work-370z.jpg">
         <source src="assets/hero-foam.mp4" type="video/mp4" />
       </video>
       <div class="hero-overlay" aria-hidden="true"></div>
@@ -268,17 +268,18 @@
 
     <!-- ================= SHOWCASE / GALLERY ================= -->
     <section class="showcase" id="gallery">
-      <div class="container showcase-inner">
-        <div class="showcase-media">
-          <!-- Drop your photo here: replace this div with <img src="assets/your-photo.jpg" alt="..."> -->
-          <div class="showcase-photo"><span>Your photo here<br />a detail in progress or a finished result</span></div>
-        </div>
-        <div class="showcase-copy">
+      <div class="container">
+        <div class="section-head">
           <p class="eyebrow">Our Work</p>
           <h2>See the <span class="grad">shine</span></h2>
-          <p>Real vehicles, real results. Every detail is finished to a standard you can see in the reflection — inside and out.</p>
-          <a href="#book" class="btn btn-primary">Book Your Detail</a>
+          <p class="section-sub">Real vehicles, real results — finished to a standard you can see in the reflection.</p>
         </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item"><img src="assets/work-370z.jpg" alt="Freshly detailed silver Nissan 370Z with a mirror-like finish" loading="lazy" width="1448" height="1086" /></figure>
+          <figure class="gallery-item"><img src="assets/work-jeep.jpg" alt="Freshly detailed glossy blue Jeep Wrangler Unlimited" loading="lazy" width="1448" height="1086" /></figure>
+          <!-- Add more photos here as <figure class="gallery-item"><img src="assets/your-photo.jpg" ...></figure> -->
+        </div>
+        <div class="gallery-cta"><a href="#book" class="btn btn-primary">Book Your Detail</a></div>
       </div>
     </section>
 
