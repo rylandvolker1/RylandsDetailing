@@ -72,6 +72,11 @@
   <main>
     <!-- ================= HERO ================= -->
     <section class="hero">
+      <!-- Drop your clip at assets/hero-foam.mp4 (a low-lit car getting foamed works great). Falls back to the dark hero if absent. -->
+      <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+        <source src="assets/hero-foam.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hex-bg" aria-hidden="true"></div>
       <div class="container hero-inner">
         <img src="assets/logo.png" alt="Ryland's Mobile Detailing logo" class="hero-logo" width="1560" height="602" />
@@ -372,16 +377,18 @@
             <li><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Horizon West, FL</span></li>
           </ul>
         </div>
-        <form class="book-form" aria-label="Booking request" onsubmit="return false;">
-          <div class="field"><label for="name">Name</label><input id="name" type="text" autocomplete="name" placeholder="Your name" required /></div>
+        <form class="book-form" name="book" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?booked=1#book" aria-label="Booking request">
+          <input type="hidden" name="form-name" value="book" />
+          <p class="hp-field" hidden><label>Leave this field empty: <input name="bot-field" /></label></p>
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required /></div>
           <div class="field">
             <label for="phone">Phone</label>
-            <input id="phone" type="tel" autocomplete="tel" placeholder="(407) 000-0000" required />
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(407) 000-0000" required />
             <small class="hint">So we can text you a quote — no spam, ever.</small>
           </div>
-          <div class="field"><label for="vehicle">Vehicle</label><input id="vehicle" type="text" placeholder="e.g. 2021 Tesla Model 3" /></div>
+          <div class="field"><label for="vehicle">Vehicle</label><input id="vehicle" name="vehicle" type="text" placeholder="e.g. 2021 Tesla Model 3" /></div>
           <div class="field"><label for="service">Service</label>
-            <select id="service">
+            <select id="service" name="service">
               <option>Express Exterior Wash</option>
               <option>Monthly Membership ($159/mo)</option>
               <option selected>Full Detail — Inside &amp; Out</option>
@@ -390,11 +397,10 @@
               <option>Not sure — help me choose</option>
             </select>
           </div>
-          <div class="field field-full"><label for="addr">Service address or general location <span class="opt">(example: Horizon West)</span></label><input id="addr" type="text" placeholder="Where should we come to?" /></div>
-          <div class="field field-full"><label for="msg">Anything else? <span class="opt">(include any add-ons you're interested in)</span></label><textarea id="msg" rows="3" placeholder="Preferred day/time, condition notes, add-ons…"></textarea></div>
+          <div class="field field-full"><label for="addr">Service address or general location <span class="opt">(example: Horizon West)</span></label><input id="addr" name="address" type="text" placeholder="Where should we come to?" /></div>
+          <div class="field field-full"><label for="msg">Anything else? <span class="opt">(include any add-ons you're interested in)</span></label><textarea id="msg" name="message" rows="3" placeholder="Preferred day/time, condition notes, add-ons…"></textarea></div>
           <button type="submit" class="btn btn-primary btn-block btn-lg">Get My Free Quote</button>
           <p class="form-reassure">Free, no-obligation quote · We usually reply within a couple hours · Your info is never shared.</p>
-          <!-- Placeholder form: connect to email / Formspree / a booking tool to go live. -->
         </form>
       </div>
     </section>

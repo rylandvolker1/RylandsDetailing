@@ -22,6 +22,20 @@
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
+  // Booking confirmation (shown after Netlify Forms redirects back with ?booked=1)
+  if (/[?&]booked=1/.test(window.location.search)) {
+    var bform = document.querySelector(".book-form");
+    if (bform) {
+      var ok = document.createElement("div");
+      ok.className = "book-success";
+      ok.setAttribute("role", "status");
+      ok.innerHTML = '<h3>Thanks — we got your request!</h3><p>We\'ll reach out shortly to confirm your detail. Need us fast? Call or text <a href="tel:+14077171124">407-717-1124</a>.</p>';
+      bform.replaceWith(ok);
+      var book = document.getElementById("book");
+      if (book) book.scrollIntoView();
+    }
+  }
+
   // Header shadow on scroll
   var header = document.querySelector(".site-header");
   if (header) {
